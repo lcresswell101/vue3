@@ -2,23 +2,23 @@
 
 echo "Starting pre-commit hook..."
 
-## Locate PHP dynamically
-#PHP_PATH=$(which php)
-#echo "PHP path found at: $PHP_PATH"
-#
-## Check if PHP path was found
-#if [ -z "$PHP_PATH" ]; then
-#    echo "Error: PHP not found in PATH. Ensure PHP is installed and accessible."
-#    exit 1
-#fi
-#
-## Add PHP’s path to PATH
-#export PATH="$(dirname "$PHP_PATH"):$PATH"
-#echo "Updated PATH with PHP directory: $PATH"
-#
-## Run Laravel Pint
-#echo "Running Laravel Pint..."
-#php vendor/bin/pint
+# Locate PHP dynamically
+PHP_PATH=$(which php)
+echo "PHP path found at: $PHP_PATH"
+
+# Check if PHP path was found
+if [ -z "$PHP_PATH" ]; then
+    echo "Error: PHP not found in PATH. Ensure PHP is installed and accessible."
+    exit 1
+fi
+
+# Add PHP’s path to PATH
+export PATH="$(dirname "$PHP_PATH"):$PATH"
+echo "Updated PATH with PHP directory: $PATH"
+
+# Run Laravel Pint
+echo "Running Laravel Pint..."
+php vendor/bin/pint
 
 # Check if Pint was successful
 if [ $? -ne 0 ]; then
