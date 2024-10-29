@@ -40,4 +40,16 @@ else
     echo "Linting completed successfully."
 fi
 
+# Run npm format
+echo "Running npm format..."
+npm run format
+
+# Check if Lint was successful
+if [ $? -ne 0 ]; then
+    echo "Formatting failed. Please fix the issues before committing."
+    exit 1
+else
+    echo "Formatting completed successfully."
+fi
+
 echo "All checks passed. Proceeding with commit."
